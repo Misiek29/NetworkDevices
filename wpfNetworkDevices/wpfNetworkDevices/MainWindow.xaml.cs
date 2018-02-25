@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpfNetworkDevices.Windows;
 
 namespace wpfNetworkDevices
 {
@@ -23,6 +24,24 @@ namespace wpfNetworkDevices
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnAddMain_Click(object sender, RoutedEventArgs e)
+        {
+            ADD win = new ADD();
+            win.Show();
+        }
+
+        private void btnMore_Click(object sender, RoutedEventArgs e)
+        {
+            Info win = new Info();
+            win.Show();
+        }
+
+        private void btnConfig_Click(object sender, RoutedEventArgs e)
+        {
+            Config win = new Config();
+            win.Show();
         }
     }
 }
