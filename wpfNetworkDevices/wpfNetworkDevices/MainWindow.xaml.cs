@@ -21,11 +21,14 @@ namespace wpfNetworkDevices
     /// </summary>
     public partial class MainWindow : Window
     {
+        NetworkDeviesEntities db;
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
+       
         private void btnAddMain_Click(object sender, RoutedEventArgs e)
         {
             ADD win = new ADD();
@@ -40,8 +43,23 @@ namespace wpfNetworkDevices
 
         private void btnConfig_Click(object sender, RoutedEventArgs e)
         {
-            Config win = new Config();
-            win.Show();
+            
+        }
+
+        private void dgDevicesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            db = new NetworkDeviesEntities();
+            dgDevicesList.ItemsSource = db.Devices.ToList();
+        }
+
+        private void cbSearchCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

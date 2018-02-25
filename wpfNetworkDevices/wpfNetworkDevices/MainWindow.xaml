@@ -5,19 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpfNetworkDevices"
         mc:Ignorable="d"
-        Title="Network Devices[HOME]" Height="410.0" Width="855.0">
-    <Grid Margin="0,0,0,0">
+        Title="Network Devices[HOME]" Height="440.597" Width="758.62" Loaded="Window_Loaded">
+    <Grid Margin="0,28,0,0" HorizontalAlignment="Left" Width="767">
         <Label Content="Search options:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="217" FontSize="24"/>
         <Label Content="Device" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,52,0,0" FontSize="14" Width="68"/>
         <Label Content="Category" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,102,0,0" FontSize="14" RenderTransformOrigin="1.055,0.724"/>
-        <ComboBox x:Name="cbSearchCategory" HorizontalAlignment="Left" Margin="83,109,0,0" VerticalAlignment="Top" Width="138"/>
+        <ComboBox x:Name="cbSearchCategory" HorizontalAlignment="Left" Margin="83,109,0,0" VerticalAlignment="Top" Width="138" SelectionChanged="cbSearchCategory_SelectionChanged"/>
         <TextBox x:Name="txtDeviceName" HorizontalAlignment="Left" Height="23" Margin="83,52,0,0" TextWrapping="Wrap" Text="Device name" VerticalAlignment="Top" Width="138"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="101,168,0,0"/>
-        <Button x:Name="btnAddMain" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="228,335,0,0" Click="btnAddMain_Click"/>
-        <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="333,335,0,0"/>
-        <DataGrid x:Name="dgDevicesList" HorizontalAlignment="Left" Height="305" Margin="228,15,0,0" VerticalAlignment="Top" Width="589"/>
-        <Button x:Name="btnInfo" Content="Info" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="448,335,0,0" Click="btnMore_Click"/>
-        <Button x:Name="btnConfig" Content="Config" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="568,335,0,0" Click="btnConfig_Click"/>
+        <Button x:Name="btnAddMain" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="311,343,0,0" Click="btnAddMain_Click"/>
+        <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="416,343,0,0"/>
+        <DataGrid x:Name="dgDevicesList" AutoGenerateColumns="False" Height="305" Margin="333,15,39.6,0" VerticalAlignment="Top" SelectionChanged="dgDevicesList_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding name}" />
+                <DataGridTextColumn Header="Manufacturer" Binding="{Binding manufacturer}" />
+                <DataGridTextColumn Header="Category" Binding="{Binding category}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnInfo" Content="Info" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="531,343,0,0" Click="btnMore_Click"/>
+        <Button x:Name="btnConfig" Content="Config" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="651,343,0,0" Click="btnConfig_Click"/>
         <TextBox x:Name="txtManufacturer" HorizontalAlignment="Left" Height="23" Margin="83,80,0,0" TextWrapping="Wrap" Text="Manufacturer" VerticalAlignment="Top" Width="138"/>
 
     </Grid>
