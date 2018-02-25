@@ -1,0 +1,32 @@
+﻿<Window x:Class="wpfNetworkDevices.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfNetworkDevices"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="1031.484">
+    <Grid Margin="0,0,0,-31">
+        <Label Content="Choose option" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="217" FontSize="24"/>
+        <Label Content="Device" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,52,0,0" FontSize="14" Width="68"/>
+        <Label Content="Category" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,76,0,0" FontSize="14" RenderTransformOrigin="1.055,0.724"/>
+        <Label Content="Add device" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,105,0,0" RenderTransformOrigin="0.606,-0.565" Width="83" FontSize="14"/>
+        <Label Content="Add category" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,134,0,0" RenderTransformOrigin="0.606,-0.565" Width="102" FontSize="14"/>
+        <Label Content="Remove device" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,163,0,0" RenderTransformOrigin="0.606,-0.565" Width="102" FontSize="14"/>
+        <Label Content="Remove category" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,192,0,0" RenderTransformOrigin="0.606,-0.565" Width="119" FontSize="14"/>
+        <ComboBox x:Name="cbSearchCategory" HorizontalAlignment="Left" Margin="137,83,0,0" VerticalAlignment="Top" Width="138"/>
+        <ComboBox x:Name="cbRemoveCategory" HorizontalAlignment="Left" Margin="137,199,0,0" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="tbSearchDevice" HorizontalAlignment="Left" Height="23" Margin="137,55,0,0" TextWrapping="Wrap" Text="Insert device name" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="tbAddDevice" HorizontalAlignment="Left" Height="23" Margin="137,110,0,0" TextWrapping="Wrap" Text="Insert device name" VerticalAlignment="Top" Width="138" IsHitTestVisible="False"/>
+        <TextBox x:Name="tbAddCategory" HorizontalAlignment="Left" Height="23" Margin="137,140,0,0" TextWrapping="Wrap" Text="Insert category name" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="tbRemoveDevice" HorizontalAlignment="Left" Height="23" Margin="137,171,0,0" TextWrapping="Wrap" Text="Insert device name" VerticalAlignment="Top" Width="138"/>
+        <Button x:Name="btnSearchDevice" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="280,57,0,0"/>
+        <Button x:Name="btnSearchCategory" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="280,85,0,0"/>
+        <Button x:Name="btnAddDevice" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="280,113,0,0"/>
+        <Button x:Name="btnAddCategory" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="280,143,0,0"/>
+        <Button x:Name="btnRemoveDevice" Content="Remove" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="280,170,0,0"/>
+        <Button x:Name="btnRemoveCategory" Content="Remove" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="280,197,0,0"/>
+        <DataGrid HorizontalAlignment="Left" Height="305" Margin="360,10,0,0" VerticalAlignment="Top" Width="653"/>
+
+    </Grid>
+</Window>
