@@ -21,18 +21,23 @@ namespace wpfNetworkDevices
     /// </summary>
     public partial class MainWindow : Window
     {
-        NetworkDeviesEntities db;
+        NetworkDeviesEntities db = new NetworkDeviesEntities();
         public MainWindow()
         {
             InitializeComponent();
-            
+            Load();
         }
 
-       
+        private void Load()
+        {
+            dgDevicesList.ItemsSource = db.Devices.ToList();
+        }
+
         private void btnAddMain_Click(object sender, RoutedEventArgs e)
         {
-            ADD win = new ADD();
-            win.Show();
+            ADD addWindow = new ADD();
+            addWindow.ShowDialog();
+            Load();
         }
 
         private void btnMore_Click(object sender, RoutedEventArgs e)
@@ -53,13 +58,21 @@ namespace wpfNetworkDevices
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            db = new NetworkDeviesEntities();
-            dgDevicesList.ItemsSource = db.Devices.ToList();
+           
         }
 
         private void cbSearchCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            int Id = (dgDevicesList.SelectedItem as Device).id;
+            var deleteDevice = db.Devices.Where(m => m.id == Id).Single();
+            db.Devices.Remove(deleteDevice);
+            db.SaveChanges();
+            Load();
         }
     }
 }

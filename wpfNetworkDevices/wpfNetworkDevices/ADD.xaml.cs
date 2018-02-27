@@ -19,6 +19,8 @@ namespace wpfNetworkDevices
     /// </summary>
     public partial class ADD : Window
     {
+        NetworkDeviesEntities db = new NetworkDeviesEntities();
+
         public ADD()
         {
             InitializeComponent();
@@ -26,6 +28,21 @@ namespace wpfNetworkDevices
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
+            Close();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Device newDevice = new Device()
+            {
+                name = txtDeviceName.Text,
+                manufacturer = txtManufacturer.Text,
+                category = cbCategory.Text
+
+            };
+
+            db.Devices.Add(newDevice);
+            db.SaveChanges();
             Close();
         }
     }
