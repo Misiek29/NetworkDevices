@@ -51,7 +51,10 @@ namespace wpfNetworkDevices
 
         private void btnConfig_Click(object sender, RoutedEventArgs e)
         {
-            ConfigWin newConfig = new ConfigWin();
+            
+            int Id = (dgDevicesList.SelectedItem as Device).id;
+            var ConfigItem = modelCodeFirst.Devices.Where(m => m.id == Id).Single();
+            ConfigWin newConfig = new ConfigWin(ConfigItem.id);
             newConfig.ShowDialog();
             Load();
         }

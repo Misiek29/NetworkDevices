@@ -11,13 +11,19 @@ namespace wpfNetworkDevices
     {
         public int id { get; set; }
 
-        public int? ip { get; set; }
+        public int? id_device { get; set; }
 
-        public int? mask { get; set; }
+        [StringLength(50)]
+        public string ip { get; set; }
 
-        public int? Gateway { get; set; }
+        [StringLength(50)]
+        public string mask { get; set; }
 
-        public int? DNS { get; set; }
+        [StringLength(50)]
+        public string Gateway { get; set; }
+
+        [StringLength(50)]
+        public string DNS { get; set; }
 
         public bool? active { get; set; }
 

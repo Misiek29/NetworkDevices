@@ -8,7 +8,7 @@ namespace wpfNetworkDevices
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=CodeFirst")
+            : base("name=Model11")
         {
         }
 
@@ -18,8 +18,25 @@ namespace wpfNetworkDevices
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Device>()
-                .HasOptional(e => e.Config)
-                .WithRequired(e => e.Device);
+                .HasMany(e => e.Configs)
+                .WithOptional(e => e.Device)
+                .HasForeignKey(e => e.id_device);
+
+            modelBuilder.Entity<Config>()
+                .Property(e => e.ip)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Config>()
+                .Property(e => e.mask)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Config>()
+                .Property(e => e.Gateway)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Config>()
+                .Property(e => e.DNS)
+                .IsUnicode(false);
         }
     }
 }
