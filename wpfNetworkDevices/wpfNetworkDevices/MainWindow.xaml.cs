@@ -82,42 +82,44 @@ namespace wpfNetworkDevices
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-                
+            
                 string name = txtDeviceName.Text;
                 string manufacturer = txtManufacturer.Text;
                 string category = cbSearchCategory.Text;
-            
-                if (string.IsNullOrEmpty(name))//jeżeli pierwsze jest puste
-                {
-                    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.manufacturer == manufacturer && x.category == category); 
-                }
-                if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(manufacturer))//jeżeli pierwsze i drugie jest puste
-                {
-                    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.category == category); 
-                }
-                if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(category))//pierwsze i trzecie
-                {
-                    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.manufacturer == manufacturer);
-                }
-                if (string.IsNullOrEmpty(manufacturer)) //jeżeli drugie jest puste
-                {
-                    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name && x.category == category);
-                }
-                if (string.IsNullOrEmpty(manufacturer) && string.IsNullOrEmpty(category)) //jeżeli drugie i trzecie
-                {
-                    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name);
-                }
-                if (string.IsNullOrEmpty(category))//jeżeli trzecie jest puste
-                {
-                    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name && x.manufacturer == manufacturer);
 
+
+                if (string.IsNullOrEmpty(name)) // jeżeli pierwszy pusty
+                {
+                    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.manufacturer == manufacturer && x.category==category);
                 }
+                if (string.IsNullOrEmpty(manufacturer)) //jeżeli drugi pusty
+                {
+                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name && x.category == category);
+                }
+                if (string.IsNullOrEmpty(category)) // jeżeli trzeci pusty
+                {
+                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name && x.manufacturer == manufacturer);
+                }
+                if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(manufacturer))//pierwszy i drugi pusty
+                {
+                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.category == category);
+                }
+                if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(category))//pierwszy i trzeci
+                {
+                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.manufacturer == manufacturer);
+                }
+                if (string.IsNullOrEmpty(manufacturer) && string.IsNullOrEmpty(category))
+                {
+                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name);
+                }
+
+
                 if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(manufacturer) && string.IsNullOrEmpty(category))
                 {
                 MessageBox.Show("Please insert all data", "Error window", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-
+            InitializeComponent();
 
         }
 
