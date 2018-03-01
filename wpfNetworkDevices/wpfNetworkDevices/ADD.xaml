@@ -11,8 +11,8 @@
         <Label Content="Insert Manufacturer:" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.463,-0.18" Width="120"/>
         <Label Content="Choose category:" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.463,-0.18" Width="120"/>
         <Label Content="Add device:" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.463,-0.18" Width="135" FontSize="24"/>
-        <TextBox x:Name="txtManufacturer" HorizontalAlignment="Left" Height="23" Margin="130,94,0,0" TextWrapping="Wrap" Text="Manufacturer" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtDeviceName" HorizontalAlignment="Left" Height="23" Margin="130,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Name"/>
+        <TextBox x:Name="txtManufacturer" HorizontalAlignment="Left" Height="23" Margin="130,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtDeviceName" HorizontalAlignment="Left" Height="23" Margin="130,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
         <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Text="Choose" Margin="130,126,0,0" VerticalAlignment="Top" Width="120" >
             <ComboBoxItem>Router</ComboBoxItem>
             <ComboBoxItem>Switch</ComboBoxItem>

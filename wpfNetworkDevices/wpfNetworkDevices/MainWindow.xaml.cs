@@ -31,7 +31,7 @@ namespace wpfNetworkDevices
             Load();
         }
 
-        private void Load()
+        public void Load()
         {
             dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList();
         }
@@ -77,6 +77,44 @@ namespace wpfNetworkDevices
             var deleteDevice = modelCodeFirst.Devices.Where(m => m.id == Id).Single();
             modelCodeFirst.Devices.Remove(deleteDevice);
             modelCodeFirst.SaveChanges();
+            Load();
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            
+                string name = txtDeviceName.Text;
+                string manufacturer = txtManufacturer.Text;
+                string category = cbSearchCategory.Text;
+                if (!(string.IsNullOrEmpty(txtDeviceName.Text)))
+                {
+                    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name);
+                    
+                }
+                else
+
+                if (!(string.IsNullOrEmpty(txtManufacturer.Text)))
+                {
+                    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.manufacturer == manufacturer);
+                   
+                }
+                else
+                if (!(string.IsNullOrEmpty(cbSearchCategory.Text)) || cbSearchCategory.Text=="Choose")
+                {
+                    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.category == category);
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Please insert all data", "Error window", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            InitializeComponent();
+
+        }
+
+        private void btnShowAll_Click(object sender, RoutedEventArgs e)
+        {
             Load();
         }
     }

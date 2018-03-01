@@ -28,5 +28,16 @@ namespace wpfNetworkDevices.Windows
         {
             Close();
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            if(!(string.IsNullOrEmpty(txtIP.Text)|| string.IsNullOrEmpty(txtDNS1.Text)
+                || string.IsNullOrEmpty(txtGateway.Text)||string.IsNullOrEmpty(txtMask.Text)))
+            {
+                //tutaj dodawac dalszy kod
+            }
+            else
+                MessageBox.Show("Please insert all data", "Error window", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }

@@ -10,13 +10,13 @@
         <Label Content="Search options:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="217" FontSize="24"/>
         <Label Content="Device" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,69,0,0" FontSize="14" Width="68"/>
         <Label Content="Category" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,119,0,0" FontSize="14" RenderTransformOrigin="1.055,0.724"/>
-        <ComboBox x:Name="cbSearchCategory" HorizontalAlignment="Left" Margin="89,126,0,0" VerticalAlignment="Top" Width="138" SelectionChanged="cbSearchCategory_SelectionChanged">
+        <ComboBox x:Name="cbSearchCategory" HorizontalAlignment="Left" Margin="107,126,0,0" VerticalAlignment="Top" Width="138" SelectionChanged="cbSearchCategory_SelectionChanged">
             <ComboBoxItem>Router</ComboBoxItem>
             <ComboBoxItem>Switch</ComboBoxItem>
             <ComboBoxItem>Other</ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="txtDeviceName" HorizontalAlignment="Left" Height="23" Margin="89,69,0,0" TextWrapping="Wrap" Text="Device name" VerticalAlignment="Top" Width="138"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="107,185,0,0"/>
+        <TextBox x:Name="txtDeviceName" HorizontalAlignment="Left" Height="23" Margin="107,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="107,185,0,0" Click="btnSearch_Click" RenderTransformOrigin="0.062,0.588"/>
         <Button x:Name="btnAddMain" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="311,343,0,0" Click="btnAddMain_Click"/>
         <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="416,343,0,0" Click="btnRemove_Click"/>
         <DataGrid x:Name="dgDevicesList" AutoGenerateColumns="False" Height="268" Margin="333,52,39,0" VerticalAlignment="Top" SelectionChanged="dgDevicesList_SelectionChanged" IsReadOnly="True">
@@ -28,8 +28,10 @@
         </DataGrid>
         <Button x:Name="btnInfo" Content="Info" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="531,343,0,0" Click="btnMore_Click"/>
         <Button x:Name="btnConfig" Content="Config" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="651,343,0,0" Click="btnConfig_Click"/>
-        <TextBox x:Name="txtManufacturer" HorizontalAlignment="Left" Height="23" Margin="89,97,0,0" TextWrapping="Wrap" Text="Manufacturer" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="txtManufacturer" HorizontalAlignment="Left" Height="23" Margin="107,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
         <Label Content="Devices List:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="333,0,0,0" Width="217" FontSize="24"/>
+        <Button x:Name="btnShowAll" Content="Show all" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="199,185,0,0" Click="btnShowAll_Click"/>
+        <Label Content="Manufacturer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,94,0,0" Width="84"/>
 
     </Grid>
 </Window>

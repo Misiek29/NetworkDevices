@@ -34,17 +34,25 @@ namespace wpfNetworkDevices
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Device newDevice = new Device()
+            if (!(string.IsNullOrWhiteSpace(txtDeviceName.Text) || 
+                string.IsNullOrWhiteSpace(txtManufacturer.Text) || 
+                string.IsNullOrWhiteSpace(cbCategory.Text) || cbCategory.Text == "Choose"))
             {
-                name = txtDeviceName.Text,
-                manufacturer = txtManufacturer.Text,
-                category = cbCategory.Text
+                Device newDevice = new Device()
+                {
+                    name = txtDeviceName.Text,
+                    manufacturer = txtManufacturer.Text,
+                    category = cbCategory.Text
 
-            };
+                };
 
-            dbCodeFirst.Devices.Add(newDevice);
-            dbCodeFirst.SaveChanges();
-            Close();
+                dbCodeFirst.Devices.Add(newDevice);
+                dbCodeFirst.SaveChanges();
+                Close();
+            }
+            else
+                MessageBox.Show("Please insert all data", "Error window", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+        
     }
 }

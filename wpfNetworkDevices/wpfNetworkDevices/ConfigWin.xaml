@@ -6,17 +6,21 @@
         mc:Ignorable="d"
         Title="Network Devices[Config]"  Height="300" Width="300">
     <Grid x:Name="txtDNS">
-        <Label Content="Config Device:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,10,0,0" FontSize="24"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="123*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Config Device:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,10,0,0" FontSize="24" Grid.ColumnSpan="2"/>
         <Label Content="Insert IP:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,52,0,0"/>
         <Label Content="Insert mask:" HorizontalAlignment="Left" Margin="27,83,0,0" VerticalAlignment="Top"/>
         <Label Content="Insert gateway:" HorizontalAlignment="Left" Margin="27,114,0,0" VerticalAlignment="Top"/>
         <Label Content="Insert DNS:" HorizontalAlignment="Left" Margin="27,140,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtGateway" HorizontalAlignment="Left" Height="23" Margin="122,114,0,0" TextWrapping="Wrap" Text="Gateway" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtIP" HorizontalAlignment="Left" Height="23" Margin="122,56,0,0" TextWrapping="Wrap" Text="IP" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtMask" HorizontalAlignment="Left" Height="23" Margin="122,86,0,0" TextWrapping="Wrap" Text="Mask" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="122,145,0,0" TextWrapping="Wrap" Text="DNS" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="27,190,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="167,190,0,0" VerticalAlignment="Top" Width="75" Click="btnBack_Click"/>
+        <TextBox x:Name="txtGateway" HorizontalAlignment="Left" Height="23" Margin="122,114,0,0" TextWrapping="Wrap" Text="Gateway" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtIP" HorizontalAlignment="Left" Height="23" Margin="122,56,0,0" TextWrapping="Wrap" Text="IP" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtMask" HorizontalAlignment="Left" Height="23" Margin="122,86,0,0" TextWrapping="Wrap" Text="Mask" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtDNS1" HorizontalAlignment="Left" Height="23" Margin="122,145,0,0" TextWrapping="Wrap" Text="DNS" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="27,190,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="167,190,0,0" VerticalAlignment="Top" Width="75" Click="btnBack_Click" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>
