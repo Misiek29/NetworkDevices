@@ -19,7 +19,8 @@ namespace wpfNetworkDevices
     /// </summary>
     public partial class ADD : Window
     {
-        NetworkDeviesEntities db = new NetworkDeviesEntities();
+        Model1 dbCodeFirst = new Model1();
+
 
         public ADD()
         {
@@ -41,8 +42,8 @@ namespace wpfNetworkDevices
 
             };
 
-            db.Devices.Add(newDevice);
-            db.SaveChanges();
+            dbCodeFirst.Devices.Add(newDevice);
+            dbCodeFirst.SaveChanges();
             Close();
         }
     }

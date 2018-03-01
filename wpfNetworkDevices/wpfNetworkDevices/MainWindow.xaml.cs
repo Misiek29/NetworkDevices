@@ -21,7 +21,10 @@ namespace wpfNetworkDevices
     /// </summary>
     public partial class MainWindow : Window
     {
-        NetworkDeviesEntities db = new NetworkDeviesEntities();
+       // NetworkDeviesEntities db = new NetworkDeviesEntities();
+        Model1 modelCodeFirst = new Model1();
+       
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,7 +33,7 @@ namespace wpfNetworkDevices
 
         private void Load()
         {
-            dgDevicesList.ItemsSource = db.Devices.ToList();
+            dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList();
         }
 
         private void btnAddMain_Click(object sender, RoutedEventArgs e)
@@ -48,7 +51,9 @@ namespace wpfNetworkDevices
 
         private void btnConfig_Click(object sender, RoutedEventArgs e)
         {
-            
+            ConfigWin newConfig = new ConfigWin();
+            newConfig.ShowDialog();
+            Load();
         }
 
         private void dgDevicesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -69,9 +74,9 @@ namespace wpfNetworkDevices
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
             int Id = (dgDevicesList.SelectedItem as Device).id;
-            var deleteDevice = db.Devices.Where(m => m.id == Id).Single();
-            db.Devices.Remove(deleteDevice);
-            db.SaveChanges();
+            var deleteDevice = modelCodeFirst.Devices.Where(m => m.id == Id).Single();
+            modelCodeFirst.Devices.Remove(deleteDevice);
+            modelCodeFirst.SaveChanges();
             Load();
         }
     }

@@ -17,9 +17,9 @@ namespace wpfNetworkDevices.Windows
     /// <summary>
     /// Logika interakcji dla klasy Config.xaml
     /// </summary>
-    public partial class Config : Window
+    public partial class ConfigWin : Window
     {
-        public Config()
+        public ConfigWin()
         {
             InitializeComponent();
         }
