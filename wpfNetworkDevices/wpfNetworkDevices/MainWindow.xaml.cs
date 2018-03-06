@@ -77,8 +77,11 @@ namespace wpfNetworkDevices
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
             int Id = (dgDevicesList.SelectedItem as Device).id;
+            int id_devices = Id;
             var deleteDevice = modelCodeFirst.Devices.Where(m => m.id == Id).Single();
+            var deleteDeviceConfig = modelCodeFirst.Configs.Where(j => j.id_device == id_devices).Single();
             modelCodeFirst.Devices.Remove(deleteDevice);
+            modelCodeFirst.Configs.Remove(deleteDeviceConfig);
             modelCodeFirst.SaveChanges();
             Load();
         }
