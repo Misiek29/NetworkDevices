@@ -20,6 +20,7 @@ namespace wpfNetworkDevices.Windows
     /// </summary>
     public partial class ConfigWin : Window
     {
+        DateTime date1 = DateTime.Now;
         public int IDToConfig;
         Model1 dbCodeFirst = new Model1();
         public ConfigWin(int idConfig)
@@ -49,7 +50,9 @@ namespace wpfNetworkDevices.Windows
                         ip = txtIP.Text,
                         mask = txtMask.Text,
                         Gateway = txtGateway.Text,
-                        DNS = txtDNS1.Text
+                        DNS = txtDNS1.Text,
+                        date = date1
+                        
                         
                     };
                     dbCodeFirst.Configs.Add(newConfig);

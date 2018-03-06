@@ -27,6 +27,8 @@ namespace wpfNetworkDevices
 
         public bool? active { get; set; }
 
+        public DateTime? date { get; set; }
+
         public virtual Device Device { get; set; }
     }
 }

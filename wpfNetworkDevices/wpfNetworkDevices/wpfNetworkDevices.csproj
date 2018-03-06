@@ -65,6 +65,7 @@
     </ApplicationDefinition>
     <Compile Include="Config.cs" />
     <Compile Include="Device.cs" />
+    <Compile Include="Devices.cs" />
     <Compile Include="Info.xaml.cs">
       <DependentUpon>Info.xaml</DependentUpon>
     </Compile>
