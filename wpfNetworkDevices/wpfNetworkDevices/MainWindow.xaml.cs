@@ -79,9 +79,17 @@ namespace wpfNetworkDevices
             int Id = (dgDevicesList.SelectedItem as Device).id;
             int id_devices = Id;
             var deleteDevice = modelCodeFirst.Devices.Where(m => m.id == Id).Single();
-            var deleteDeviceConfig = modelCodeFirst.Configs.Where(j => j.id_device == id_devices).Single();
+
+            var DeleteDiveConfig =
+              from odq in modelCodeFirst.Configs
+              where odq.id_device == id_devices
+              select odq;
+            foreach (var selectedConfig in  DeleteDiveConfig)
+            {
+                modelCodeFirst.Configs.RemoveRange(DeleteDiveConfig);
+            }
             modelCodeFirst.Devices.Remove(deleteDevice);
-            modelCodeFirst.Configs.Remove(deleteDeviceConfig);
+            
             modelCodeFirst.SaveChanges();
             Load();
         }
