@@ -19,14 +19,40 @@ namespace wpfNetworkDevices.Windows
     /// </summary>
     public partial class Info : Window
     {
-        public Info()
+        Model1 modelCodeFirst = new Model1();
+        public int ItemInfoID;
+
+
+        public Info(int Iteminfo)
         {
+            ItemInfoID = Iteminfo;
             InitializeComponent();
+            Load();
+
+        }
+
+        public void Load()
+        {
+            var ItemInfo = modelCodeFirst.Devices.Where(m => m.id == ItemInfoID).Single();
+            var ItemInfoConfig = modelCodeFirst.Configs.Where(j => j.id_device == ItemInfoID).ToList().Last();
+            txtName.Text = ItemInfo.name;
+            txtCategory.Text = ItemInfo.category;
+            txtIP.Text = ItemInfoConfig.ip;
+            txtMask.Text = ItemInfoConfig.mask;
+            txtGate.Text = ItemInfoConfig.Gateway;
+            txtDNS.Text = ItemInfoConfig.DNS;
+
+            dgInfo.ItemsSource = modelCodeFirst.Configs.Where(j => j.id_device == ItemInfoID).ToList();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void dgInfo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

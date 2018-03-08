@@ -45,8 +45,10 @@ namespace wpfNetworkDevices
 
         private void btnMore_Click(object sender, RoutedEventArgs e)
         {
-            Info win = new Info();
-            win.Show();
+            int Id = (dgDevicesList.SelectedItem as Device).id;
+            var ItemInfo = modelCodeFirst.Devices.Where(m => m.id == Id).Single();
+            Info winInfo = new Info(ItemInfo.id);
+            winInfo.Show();
         }
 
         private void btnConfig_Click(object sender, RoutedEventArgs e)
@@ -102,7 +104,20 @@ namespace wpfNetworkDevices
                 string category = cbSearchCategory.Text;
 
 
-                if (string.IsNullOrEmpty(name)) // jeżeli pierwszy pusty
+            var query = modelCodeFirst.Devices.AsQueryable();
+
+            if (! string.IsNullOrEmpty(name))
+            {
+                query = query.Where(r => r.name == name);
+
+            }
+            if (!string.IsNullOrEmpty(manufacturer))
+            {
+                query = query.Where(r => r.manufacturer == manufacturer);
+
+            }
+
+            if (string.IsNullOrEmpty(name)) // jeżeli pierwszy pusty
                 {
                     dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.manufacturer == manufacturer && x.category==category);
                 }
@@ -126,12 +141,20 @@ namespace wpfNetworkDevices
                 {
                 dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name);
                 }
-
+            //    if (!(string.IsNullOrEmpty(name) && string.IsNullOrEmpty(manufacturer) && string.IsNullOrEmpty(category)))
+            //{
+            //    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name && x.manufacturer == manufacturer && x.category == category);
+            //}
 
                 if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(manufacturer) && string.IsNullOrEmpty(category))
                 {
                 MessageBox.Show("Please insert all data", "Error window", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+
+            txtDeviceName.Text = null;
+            txtManufacturer.Text = null;
+            cbSearchCategory.SelectedValue = null;
+                
 
             InitializeComponent();
 
