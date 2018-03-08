@@ -46,7 +46,19 @@ namespace wpfNetworkDevices
 
                 };
 
+
                 dbCodeFirst.Devices.Add(newDevice);
+
+                Config newConfiguration = new Config()
+                {
+                    id_device = newDevice.id,
+                    ip = "none",
+                    DNS = "none",
+                    mask = "none",
+                    Gateway = "none"
+
+                };
+                dbCodeFirst.Configs.Add(newConfiguration);
                 dbCodeFirst.SaveChanges();
                 Close();
             }

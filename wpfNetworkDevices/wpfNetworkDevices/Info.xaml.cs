@@ -42,7 +42,7 @@ namespace wpfNetworkDevices.Windows
             txtGate.Text = ItemInfoConfig.Gateway;
             txtDNS.Text = ItemInfoConfig.DNS;
 
-            dgInfo.ItemsSource = modelCodeFirst.Configs.Where(j => j.id_device == ItemInfoID).ToList();
+            dgInfo.ItemsSource = modelCodeFirst.Configs.Where(j => j.id_device == ItemInfoID && j.ip != "none").ToList();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
