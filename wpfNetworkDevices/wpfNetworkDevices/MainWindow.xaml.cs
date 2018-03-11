@@ -105,7 +105,6 @@ namespace wpfNetworkDevices
 
 
             var query = modelCodeFirst.Devices.AsQueryable();
-
             if (! string.IsNullOrEmpty(name))
             {
                 query = query.Where(r => r.name == name);
@@ -114,33 +113,42 @@ namespace wpfNetworkDevices
             if (!string.IsNullOrEmpty(manufacturer))
             {
                 query = query.Where(r => r.manufacturer == manufacturer);
-
             }
 
-            if (string.IsNullOrEmpty(name)) // jeżeli pierwszy pusty
-                {
-                    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.manufacturer == manufacturer && x.category==category);
-                }
-                if (string.IsNullOrEmpty(manufacturer)) //jeżeli drugi pusty
-                {
-                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name && x.category == category);
-                }
-                if (string.IsNullOrEmpty(category)) // jeżeli trzeci pusty
-                {
-                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name && x.manufacturer == manufacturer);
-                }
-                if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(manufacturer))//pierwszy i drugi pusty
-                {
-                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.category == category);
-                }
-                if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(category))//pierwszy i trzeci
-                {
-                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.manufacturer == manufacturer);
-                }
-                if (string.IsNullOrEmpty(manufacturer) && string.IsNullOrEmpty(category))
-                {
-                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name);
-                }
+            if (!string.IsNullOrEmpty(category))
+            {
+                query = query.Where(r => r.category == category);
+            }
+
+            foreach (var item in query)
+            {
+                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == item.name && x.category == item.category && x.manufacturer == item.manufacturer);
+            }
+
+            //if (string.IsNullOrEmpty(name)) // jeżeli pierwszy pusty
+            //    {
+            //        dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.manufacturer == manufacturer && x.category==category);
+            //    }
+            //    if (string.IsNullOrEmpty(manufacturer)) //jeżeli drugi pusty
+            //    {
+            //    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name && x.category == category);
+            //    }
+            //    if (string.IsNullOrEmpty(category)) // jeżeli trzeci pusty
+            //    {
+            //    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name && x.manufacturer == manufacturer);
+            //    }
+            //    if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(manufacturer))//pierwszy i drugi pusty
+            //    {
+            //    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.category == category);
+            //    }
+            //    if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(category))//pierwszy i trzeci
+            //    {
+            //    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.manufacturer == manufacturer);
+            //    }
+            //    if (string.IsNullOrEmpty(manufacturer) && string.IsNullOrEmpty(category))
+            //    {
+            //    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name);
+            //    }
             //    if (!(string.IsNullOrEmpty(name) && string.IsNullOrEmpty(manufacturer) && string.IsNullOrEmpty(category)))
             //{
             //    dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == name && x.manufacturer == manufacturer && x.category == category);

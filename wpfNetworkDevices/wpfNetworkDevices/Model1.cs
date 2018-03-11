@@ -17,6 +17,8 @@ namespace wpfNetworkDevices
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<Model1>(null);
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Device>()
                 .HasMany(e => e.Configs)
                 .WithOptional(e => e.Device)
