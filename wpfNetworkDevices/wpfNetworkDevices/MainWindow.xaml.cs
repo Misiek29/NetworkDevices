@@ -119,11 +119,8 @@ namespace wpfNetworkDevices
             {
                 query = query.Where(r => r.category == category);
             }
+            dgDevicesList.ItemsSource = query.ToList();
 
-            foreach (var item in query)
-            {
-                dgDevicesList.ItemsSource = modelCodeFirst.Devices.ToList().Where(x => x.name == item.name && x.category == item.category && x.manufacturer == item.manufacturer);
-            }
 
             //if (string.IsNullOrEmpty(name)) // jeżeli pierwszy pusty
             //    {
